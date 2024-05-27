@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load static %}
+{% block css %}
+<script src="{% static 'js/jquery-3.6.4.min.js' %}"></script>
+{% endblock css %}
+{% block contenido %}
+        <!-- formulario_contacto -->
+        <section id="formulario">
+            <h2 class="titulo">Formulario</h2>            
+        </section>
+        <!-- formulario ingreso formulario_contacto-->
+        <h1 class="titulo" >Ingrese Sus Datos</h1>   
+                 
+        <form action="" class="formulario_contacto" method="post" style="display: flex;">
+            {% csrf_token %}
+
+            {{form}}
+            <button type="submit" id="btnEnviar" class="button"  style="color: white; background-color: black; margin-top: 10px; margin-bottom: 10px;">Enviar</button>
+            <input type="reset" class="col-p" value="Limpiar" style="color: white; background-color: black;">
+                
+                
+        </form>
+        
+        
+{% endblock contenido %}        
+  
+  {% block js %}
+  <script src="{% static 'js/validaciones.js' %}"></script>
+  <script src="{% static  'https://code.jquery.com/jquery-3.6.4.min.js' %}" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+  <script src="{% static  'https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js' %}"></script>
+  <script src="{% static  'js/formulario_jquery.js' %}"></script>
+  {% endblock js %}
+    
+   
+       
+        
+    

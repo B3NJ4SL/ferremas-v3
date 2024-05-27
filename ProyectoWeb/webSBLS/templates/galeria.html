@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load static %}
+{% block contenido %}
+   
+        <section style="text-align: center;" id="bienvenido">
+            <h2 class="titulo">Productos</h2>
+            <p class="subtitulo">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos, quas eius consequatur maiores ratione, tenetur corrupti consequuntur odio vero commodi illo a aperiam. Sequi mollitia praesentium modi distinctio ullam maiores!</p>            
+        </section>
+        <!--blog trabajos realizados-->
+        <section id="blog">
+            <br>
+            <form style="text-align: center;" action="{% url 'BUSC_NOM' %}" method="post">
+                {% csrf_token %}
+                <h1 class="subtitulo">Buscar por nombre:</h1> 
+                <input type="text" name="txtTrabajo" id="txtTrabajo">
+                <input type="submit" value="Buscar">
+            </form>            
+            <form style="text-align: center;" action="{% url 'BUSC_PCLAV' %}" method="post">
+                {% csrf_token %}
+                <h1 class="subtitulo">Buscar por palabra clave:</h1> 
+                <input type="text" name="txtDesc" id="txtDesc">
+                <input type="submit" value="Buscar">
+            </form>
+            <br>
+            <h3 class="titulo">Lo ultimo de nuestros productos</h3>
+            <div class="contenedor">
+                {% for item in trabajos %}                                
+                <article style="text-align: center;">
+                    <img src="{{item.foto.url}}" alt="" width="820px" height="680px" style="text-align: center; border: solid 4px hsl(17, 100%, 50%);"">
+                    <h4 class="titulo">{{item.nombreTrabajo}}</h4>
+                    <h4 class="subtitulo">{{item.descripcion}}</h4>
+                    <h4 style="text-align: center;"><a href="{% url 'DET_TRA' item.idTrabajo%}">Ver Detalle</a></h4>
+                </article>
+                {% endfor %}
+            </div>
+            <h2 style="text-align: center;color:  white;">Total: {{cantidad}}</h2>
+            
+        </section>
+        
+{% endblock contenido %}

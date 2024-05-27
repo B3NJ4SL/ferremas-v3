@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load static %}
+{% block contenido %}
+    <!-- bienvenidos -->
+        <section id="bienvenido">
+            <h2 class="titulo">Detalle Producto</h2>
+            <p class="subtitulo">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos, quas eius consequatur maiores ratione, tenetur corrupti consequuntur odio vero commodi illo a aperiam. Sequi mollitia praesentium modi distinctio ullam maiores!</p>            
+        </section>
+        
+        <section id="blog">
+            <br>            
+            <div class="contenedor">                                               
+                <article>
+                    <img src="{{trabajo.foto.url}}" alt="" style="text-align:center;display: block; border: solid 4px hsl(17, 100%, 50%);width: 1000px; height: 700;">
+                    <label for="nombre" style="text-align: center; display: block; color: rgb(210, 50, 0); font-size: larger;">Nombre del Producto:</label>
+                    <h4 class="titulo" style="border: solid 2px white;">{{trabajo.nombreTrabajo}}</h4>
+                    <label for="nombre" style="text-align: center; display: block; color: rgb(210, 50, 0); font-size: larger;">Descripcion:</label>
+                    <h4 class="subtitulo" style="border: solid 2px white;">{{trabajo.descripcion}}</h4>
+                    <label for="nombre" style="text-align: center; display: block; color: rgb(210, 50, 0); font-size: larger;">Usuario:</label>
+                    <h4 class="subtitulo" style="border: solid 2px white;">{{trabajo.mecanico}}</h4>
+                    <label for="nombre" style="text-align: center; display: block; color: rgb(210, 50, 0); font-size: larger;">Marca:</label>
+                    <h4 class="subtitulo" style="border: solid 2px white;">{{trabajo.marcav}}</h4>
+                    <label for="nombre" style="text-align: center; display: block; color: rgb(210, 50, 0); font-size: larger;">Modelo:</label>
+                    <h4 class="subtitulo" style="border: solid 2px white;">{{trabajo.modelov}}</h4>
+                    <label for="nombre" style="text-align: center; display: block; color: rgb(112106, 50, 0); font-size: larger;">Año:</label>
+                    <h4 class="subtitulo" style="border: solid 2px white;">{{trabajo.annov}}</h4>
+                    <label for="nombre" style="text-align: center; display: block; color: rgb(112106, 50, 0); font-size: larger;">Precio:</label>
+                    <h4 class="subtitulo" style="border: solid 2px white;">{{trabajo.preciv}}</h4>
+                    <label for="nombre" style="text-align: center; display: block; color: rgb(112106, 50, 0); font-size: larger;">Comprar:</label>
+                    <a href="{% url 'AT' trabajo.idTrabajo %}">Agregar al carro</a>
+
+                </article>
+                
+            </div>
+            
+        </section>
+{% endblock contenido %}

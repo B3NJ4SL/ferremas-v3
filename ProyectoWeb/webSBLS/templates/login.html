@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load static %}
+{% block css %}
+<script src="{% static 'js/jquery-3.6.4.min.js' %}"></script>
+{% endblock css %}
+{% block contenido %}
+        <!-- Trabajos -->
+        <section id="formulario" class="textos-header" style="text-align: center;">
+            <h2 class="titulo">Iniciar Sesion</h2>
+            <h3 class="subtitulo">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab esse aliquam totam, deserunt unde voluptatum ad ipsam! Quod ex totam delectus laudantium odit? Cumque, sed. Odit molestiae vitae labore veniam? </h3>            
+        </section>
+        <!-- formulario -->
+        <div style="text-align: center;font-size: xx-large; color: red;">
+            {{mensaje}}
+        </div>   
+        <section id="">            
+            <form id="formlog" action="{% url 'LOGIN' %}" method="post" enctype="multipart/form-data" >
+                 {% csrf_token %}
+                 <br>
+                <h1 class="titulo">Ingrese Datos De Inicio De Sesion
+                </h1>
+                <div class="formulario_contacto" style="color: white;">
+                    <label for="nombre">Nombre de usuario : </label>
+                    <br>
+                    <input style="color: white; background-color: black;" type="text" placeholder="ingrese Usuario" class="col-p" name="txtUsuario" id="txtUsuario" minlength="3" required>
+                    <br>
+                    <label for="nombre">Contraseña : </label>
+                    <br>
+                    <input style="color: white; background-color: black;" type="password" placeholder="ingrese contraseña" class="col-p" name="txtPass" id="txtPass" required>
+                    <br>     
+                                
+                    <input type="submit" class="col-p" value="Ingresar" style="margin-right: 10px; margin-top: 10px;color: white; background-color: black; ">                
+                    <input type="reset" class="col-p" value="Limpiar" style="color: white; background-color: black;">
+                    
+                </div>
+            </form>
+        </section>
+{% endblock contenido %}        
+  
+  {% block js %}
+  <script src="{% static 'js/validaciones.js' %}"></script>
+  {% endblock js %}

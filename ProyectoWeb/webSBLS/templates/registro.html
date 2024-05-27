@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% load static %}
+{% block css %}
+<script src="{% static 'js/jquery-3.6.4.min.js' %}"></script>
+{% endblock css %}
+{% block contenido %}
+        
+        <section id="formulario" class="textos-header" style="text-align: center;">
+            <h2 class="" style="color: white; font-size: 100px;">Registro</h2>
+            <h3 class="subtitulo">Complete todos los campos presentados a continuacion para poder registrarse</h3>            
+        </section>
+        
+        <div style="text-align: center;font-size: xx-large; color: rgb(255, 0, 0);">
+            {{mensaje}}
+        </div>   
+        <section id="formulario_reg">            
+            <form action="{% url 'REGCOL' %}" method="post">  
+                {% csrf_token %}              
+                
+                <br>
+                <h1 class="titulo">Ingrese Datos</h1>
+                <div class="formulario_contacto" style="color: white;">
+                    <label for="nombre">Nombre: </label>
+                    <br>
+                    <input type="text" style="color: white; background-color: black;" placeholder="Ingrese nombre" class="col-p" name="txtNombreu" id="txtNombreu" required>
+                    <br>
+                    <label for="nombre">Apellido : </label>
+                    <br>
+                    <input type="text" style="color: white; background-color: black;" placeholder="Ingrese apellido" class="col-p" name="txtApellidou" id="txtApellidou" required>
+                    <br>
+                    <label for="nombre">Nombre De Usuario:</label>
+                    <br>
+                    <input type="text" style="color: white; background-color: black;" placeholder="Ingrese nombre de usuario" class="col-p" name="txtNombreusua" id="txtNombreusua" required>                    
+                    <br>
+                    <label for="nombre">Email:</label>
+                    <br>
+                    <input type="email" style="color: white; background-color: black;" placeholder="Ingrese Email" class="col-g" name="txtEmailu" id="txtEmailu" required>
+                    <br>
+                    <label for="nombre">Contraseña:</label>
+                    <br>
+                    <input type="password" style="color: white; background-color: black;" placeholder="Ingrese Contraseña" class="col-p" name="pwdPass1" id="pwdPass1" required>
+                    <br>
+                    <label for="nombre">Repita Contraseña:</label>
+                    <br>
+                    <input type="password" style="color: white; background-color: black;" placeholder="Repita contraseña" class="col-p" name="pwdPass2" id="pwdPass2" required>
+                    <br>                    
+                    
+                    <input style="margin-top: 10px; margin-right: 10px;" type="submit" class="col-p" value="Enviar">
+                    <input type="reset" class="col-p" value="Limpiar">
+                    
+                    
+                    
+                </div>
+            </form>
+        </section>
+{% endblock contenido %}        
+  
+  {% block js %}
+  <script src="{% static 'js/validaciones.js' %}"></script>
+  {% endblock js %}

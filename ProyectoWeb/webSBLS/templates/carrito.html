@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block contenido %}
+<section style="margin-left: 200px;">
+    <table style="color: white; border: solid 3px white ;text-align: center; width: 1500px;">
+        <tr style="border: solid 3px white;">
+            <td style="border: solid 3px white;color: red;">Nombre</td>
+            <td style="border: solid 3px white;color: red;">Categoria</td>
+            <td style="border: solid 3px white;color: red;">Precio</td>
+            <td style="border: solid 3px white;color: red;">Cantidad</td>
+            <td style="border: solid 3px white;color: red;">Total</td>
+            <td style="border: solid 3px white;color: red;">Agregar/Quitar</td>
+        </tr>
+        {% if request.session.carrito.items %}
+        {% for key, value in request.session.carrito.items %}
+        <tr style="border: solid 3px white; text-align: center;">
+            <td style="border: solid 3px white;">{{value.nombre}}</td>
+            <td style="border: solid 3px white;">{{value.categoria}}</td>
+            <td style="border: solid 3px white;">{{value.precio}}</td>
+            <td style="border: solid 3px white;">{{value.cantidad}}</td>
+            <td style="border: solid 3px white;">{{value.total}}</td>
+            <td>
+                <a href="{% url 'AT' value.id %}">Agregar</a>
+            
+                <a href="{% url 'RESTAR' value.id %}">Quitar</a>
+            </td>
+        </tr>
+        <br>
+        {% endfor %}
+        
+        {% else %}
+        {% endif %}
+        
+    </table>
+</section>
+<br>
+<br>
+
+{% endblock contenido %}
